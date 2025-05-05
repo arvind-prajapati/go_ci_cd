@@ -18,12 +18,12 @@ jobs:
       - name: Use secret
         run: echo "The secret is $MY_SECRET"
         env:
-          MY_SECRET: ${{ secrets.DOCKER_USERNAME }}
+          MY_SECRET: ${{ secrets.DOCKERHUB_USERNAME }}
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v3.4.0
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build and push Docker images
@@ -32,4 +32,4 @@ jobs:
           context: .
           file: Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/myapp:${{ github.sha }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/myapp:${{ github.sha }}
