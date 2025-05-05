@@ -4,6 +4,15 @@ on:
     branches:
       - main
   workflow_dispatch:
+    inputs:
+      environments:
+        description: "Environment to deploy"
+        required: true
+        default: dev
+      version:
+        description: "App version to deploy"
+        required: false
+        default: latest
 
 jobs:
   build-and-push:
