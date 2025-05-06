@@ -1,4 +1,5 @@
 name: test
+run-name: Docker Image Build and Push
 on:
   push:
     branches:
