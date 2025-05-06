@@ -14,6 +14,13 @@ on:
         description: "App version to deploy"
         required: false
         default: latest
+  workflow_call:
+    inputs:
+      username:
+        type: string
+        description: "Docker Hub username"
+        required: true
+        default: ${{ secrets.DOCKERHUB_USERNAME }}
 
 jobs:
   build-and-push:
