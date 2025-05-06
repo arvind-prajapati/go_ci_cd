@@ -1,5 +1,5 @@
 name: test
-run-name: build deployed on Environment and deployed by  ${{ github.actor }} 
+run-name: build deployed on ${{ github.event.inputs.environment }} and deployed by  ${{ github.actor }}  for ${{ github.event.repository.name }}
 on:
   push:
     branches:
