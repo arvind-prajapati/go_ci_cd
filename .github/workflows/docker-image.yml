@@ -1,27 +1,9 @@
 name: test
-run-name: Docker Image Build and Push
+run-name: Deocker Image Build and Push for ${{ github.event.repository.name }}
 on:
   push:
     branches:
       - main
-  workflow_dispatch:
-    inputs:
-      environments:
-        description: "Environment to deploy"
-        required: true
-        default: dev
-      version:
-        description: "App version to deploy"
-        required: false
-        default: latest
-  workflow_call:
-    inputs:
-      username:
-        type: string
-        description: "Docker Hub username"
-        required: true
-        default: ${{ secrets.DOCKERHUB_USERNAME }}
-
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
