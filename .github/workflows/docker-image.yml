@@ -1,5 +1,5 @@
 name: test
-run-name: Deocker Image Build and Push for ${{ github.event.repository.name }}
+run-name: build deployed on Environment and deployed by  ${{ github.actor }} 
 on:
   push:
     branches:
