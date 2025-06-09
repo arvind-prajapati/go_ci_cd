@@ -1,14 +1,16 @@
 package main
 
 import (
-	"fmt"
-	"net/http"
+	"context"
+	"log"
+
+	"google.golang.org/api/idtoken"
 )
 
 func main() {
-	http.HandleFunc("/up", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("Hello, World!"))
-	})
-	fmt.Println("Server started at :8080")
-	http.ListenAndServe(":8080", nil)
+	_, err := idtoken.NewClient(context.Background(), "https://kyc-dev-pcdsimq4za-ey.a.run.app")
+	if err != nil {
+		log.Fatalf("failed to create ID token client: %v", err)
+	}
+
 }
